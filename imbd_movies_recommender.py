@@ -1,7 +1,8 @@
 import requests
 import json
 def get_movies_from_tastedive(name):
-    api_key = '434663-movierec-4WFEAXZ0'
+    #go to https://tastedive.com/api to get your api key
+    api_key = 'insert key here'
     parameters= {}
     parameters['q'] = name
     parameters['type'] = 'movie'
