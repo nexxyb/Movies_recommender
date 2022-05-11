@@ -1,8 +1,19 @@
 import requests
 import json
+import config
+
+movlist = []
+while True:
+    movs = input(str('Enter the movie name one after the other and type done:'))
+    if movs != 'done':
+        movlist.append(movs)
+    elif movs == 'done':
+        break
+print('Processing similar movies to:', movlist)
+
 def get_movies_from_tastedive(name):
     #go to https://tastedive.com/api to get your api key
-    api_key = 'insert key here'
+    api_key = config.api_key
     parameters= {}
     parameters['q'] = name
     parameters['type'] = 'movie'
@@ -36,11 +47,11 @@ def get_related_titles(titles):
 #print(get_related_titles(["the witcher"]))
 
 def get_movie_data(movie_title):
-    #api_key = 'f8e4a135'
+    
     parameters= {}
     parameters['t'] = movie_title
     parameters['type'] = 'movie'
-    parameters['apikey'] = ['f8e4a135']
+    parameters['apikey'] = config.api_key2
     response = requests.get('http://www.omdbapi.com/', params= parameters)
     #page = json.dumps(response.text)
     #print(response)
@@ -99,5 +110,5 @@ def get_sorted_recommendations(movie_list):
         recommended= sorted(final_recommendations, reverse= True, key= lambda x: x[1])
         return recommended
 
-print(get_sorted_recommendations(["Basic Instinct","Unfaithful","Killing me softly"]))
+print(get_sorted_recommendations(movlist))
     
