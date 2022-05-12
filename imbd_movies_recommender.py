@@ -9,7 +9,7 @@ while True:
         movlist.append(movs)
     elif movs == 'done':
         break
-print('Processing similar movies to:', movlist)
+print('Fetching similar movies to:', movlist)
 
 def get_movies_from_tastedive(name):
     #go to https://tastedive.com/api to get your api key
