@@ -18,23 +18,31 @@
         <section>
             <h2>Welcome, get similar movies to your favorite movies</h2>
         </section>
-        <section>
+        <section id="search">
                 <fieldset>
                     <legend>Search</legend>
                     <label>Enter Movie Name(s): <input type="text" name="movlist" id="movlist"></label>
+                    <input type="submit" name="movlistform" value="Submit">
                 </fieldset>
         </section>
-        <section>
+        <section id="searchresult">
             <fieldset>
                 <legend>Movie Search Result</legend>
                 <output type="textarea" for="movlist"></output> 
             </fieldset>
         </section>
-        <section>
+        <aside is="synopsis">
             <fieldset>
-                <legend id="synopsis">Synopsis</legend>
+                <legend>Synopsis</legend>
+                <output type="textarea" for="movlist"></output> 
             </fieldset>
-        </section>   
+        </aside>
+        <aside id="preview">
+            <fieldset>
+                <legend>Trailer Preview</legend>
+                <output type="textarea" for="preview"></output> 
+            </fieldset>
+        </aside>
        
     </body>
     <footer>
