@@ -8,45 +8,46 @@
     <body>
         <header>
             <h1>Similar Movies Recommender</h1>
-            <!-- <h2>Get similar movies to myour favorites</h2> -->
+            <p><span>Get similar movies to your favorites</span></p>
         </header>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact Us</a>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
         </nav>
         <section>
             <h2>Welcome, get similar movies to your favorite movies</h2>
         </section>
         <section id="search">
-                <fieldset>
-                    <legend>Search</legend>
+                <fieldset id="search">
+                    <!-- <legend>Search</legend> -->
                     <label>Enter Movie Name(s): <input type="text" name="movlist" id="movlist"></label>
                     <input type="submit" name="movlistform" value="Submit">
                 </fieldset>
         </section>
+        <section id="synopsis">
+            <fieldset >
+                <legend>Synopsis</legend>
+                <output type="textarea" for="movlist" id="synopsis"></output> 
+            </fieldset>
         <section id="searchresult">
-            <fieldset>
+            <fieldset id="searchresult">
                 <legend>Movie Search Result</legend>
-                <output type="textarea" for="movlist"></output> 
+                <output type="textarea" for="movlist" id="searchresult"></output> 
             </fieldset>
         </section>
-        <aside is="synopsis">
-            <fieldset>
-                <legend>Synopsis</legend>
-                <output type="textarea" for="movlist"></output> 
-            </fieldset>
-        </aside>
-        <aside id="preview">
-            <fieldset>
+        
+        </section>
+        <section id="preview">
+            <fieldset "preview">
                 <legend>Trailer Preview</legend>
                 <output type="textarea" for="preview"></output> 
             </fieldset>
-        </aside>
+        </section>
        
     </body>
     <footer>
-        <p>Copyright 2022. All Rights Reserved Devnexx</p>
+        <p> Devnexx Copyright 2022. All Rights Reserved</p>
 
         </footer>
 </html> 
