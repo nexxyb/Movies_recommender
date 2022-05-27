@@ -15,35 +15,34 @@
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact Us</a></li>
         </nav>
+        
         <section>
-            <h2>Welcome, get similar movies to your favorite movies</h2>
-        </section>
-        <section id="search">
-                <fieldset id="search">
+                <fieldset id="fsearch">
                     <!-- <legend>Search</legend> -->
-                    <label>Enter Movie Name(s): <input type="text" name="movlist" id="movlist"></label>
+                    <label>Search: <input type="text" name="movlist" id="movlist" placeholder="Enter movie name(s)"></label>
                     <input type="submit" name="movlistform" value="Submit">
                 </fieldset>
         </section>
-        <section id="synopsis">
-            <fieldset >
+        <aside>
+            <fieldset id="fsynopsis">
                 <legend>Synopsis</legend>
                 <output type="textarea" for="movlist" id="synopsis"></output> 
             </fieldset>
-        <section id="searchresult">
-            <fieldset id="searchresult">
+        </aside>
+        <section >
+            <fieldset id="fsearchresult">
                 <legend>Movie Search Result</legend>
                 <output type="textarea" for="movlist" id="searchresult"></output> 
             </fieldset>
         </section>
         
         </section>
-        <section id="preview">
-            <fieldset "preview">
-                <legend>Trailer Preview</legend>
-                <output type="textarea" for="preview"></output> 
-            </fieldset>
-        </section>
+        <aside>
+           <video width="600" height="175" controls id="fpreview">
+               <source src="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_video" type="video/mp4">
+               <source src="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_video" type="video/ogg"
+           </video>
+        </aside>
        
     </body>
     <footer>
