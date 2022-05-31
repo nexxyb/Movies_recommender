@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Microblog</title>
+        {% else %}
+        <title>Similar Movies Recommender</title>
+        {% endif %}
+    <head>
+    <body>
+        <header>
+            <h1>Similar Movies Recommender</h1>
+            <p><span>Get similar movies to your favorites</span></p>
+        </header>
+        <div>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact Us</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+    <footer>
+        <p> Devnexx Copyright 2022. All Rights Reserved</p>
+        </footer>
+</html>
