@@ -4,13 +4,14 @@
         
         <section>
             <h1>Hi, {{ current_user.username }}!</h1>
-            <div class="mb-3">
-                <label class="form-label">Enter Movie name(s) here:</label>
-                <input type="textarea" class="form-control" id="search">
-            </div>
-            <div style="padding: 25px 25px 25px 25px;">
-                <button onclick="getMovie()" class="btn btn-secondary">Get Movie</button>        
-            </div>
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.search.label }}<br>
+                </p>
+                <p>{{ form.submit() }}</p>
+                
+            </form>
         
             <div id="search_result" style="padding: 25px 25px 25px 25px;"></div>
             </div>
@@ -19,6 +20,6 @@
                <source src="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_video" type="video/mp4">
                <source src="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_video" type="video/ogg"
            </video>
-        </aside>
+        </section>
 {% endblock %}
 

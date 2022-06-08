@@ -81,20 +81,26 @@ def get_movie_rating(movie):
 
     
 def get_movie(movie_list):
-    recommendations= []
+    movie_list=[movie_list]
     recom1= []
     recom2 = []
-    for movie in movie_list:
-        related_titles = get_related_titles(movie_list) 
+    l_movie_list= []
+    for m in movie_list:
+        l_movie_list.append(m.lower())
+    #print(l_movie_list)
+    recommendations= []
+    #final_recommendations= []
+    for movie in l_movie_list:
+        related_titles = get_related_titles(movie_list)
+        
+        #print(related_titles)
         for movie in related_titles:
             movie_rating = get_movie_rating(movie)
-            recommendations.append((movie_rating,movie))
-        for pair in recommendations:
-            if type(pair[0]) == float:
-                recom1.append(pair)
-            else:
-                recom2.append(pair)
-        recommended= sorted(recom1, reverse=True) + recom2
-        return recommended
-print(get_movie('unfaithful'))
+            recom1.append(movie)
+            recom2.append(movie_rating)
+            r_dict= dict(zip(recom1,recom2))
+            recom= {k:v for k,v in sorted(r_dict.items(), key=lambda item: item[1], reverse=True)}
+    return recom
+
+#print(get_movie('300'))
     
