@@ -5,6 +5,7 @@ from app import app, db
 from app.forms import LoginForm, RegistrationForm, EditProfileForm
 from app.models import User
 from datetime import datetime
+from app import mmr
 
 @app.route('/')
 @app.route('/home')
@@ -12,6 +13,12 @@ from datetime import datetime
 @login_required
 def index():
     return render_template('index.html', title="Home")
+
+@app.route('/getmovie', methods= ["GET", "POST"])
+def getmovie():
+    search= request.args.get('search')
+    result= mmr.get_movie(search)
+    return result
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

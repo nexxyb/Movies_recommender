@@ -4,27 +4,17 @@
         
         <section>
             <h1>Hi, {{ current_user.username }}!</h1>
-                <fieldset id="fsearch">
-                    <!-- <legend>Search</legend> -->
-                    <label>Search: <input type="text" name="movlist" id="movlist" placeholder="Enter movie name(s)"></label>
-                    <input type="submit" name="movlistform" value="Submit">
-                </fieldset>
-        </section>
-        <aside>
-            <fieldset id="fsynopsis">
-                <legend>Synopsis</legend>
-                <output type="textarea" for="movlist" id="synopsis"></output> 
-            </fieldset>
-        </aside>
-        <section >
-            <fieldset id="fsearchresult">
-                <legend>Movie Search Result</legend>
-                <output type="textarea" for="movlist" id="searchresult"></output> 
-            </fieldset>
-        </section>
+            <div class="mb-3">
+                <label class="form-label">Enter Movie name(s) here:</label>
+                <input type="textarea" class="form-control" id="search">
+            </div>
+            <div style="padding: 25px 25px 25px 25px;">
+                <button onclick="getMovie()" class="btn btn-secondary">Get Movie</button>        
+            </div>
         
-        </section>
-        <aside>
+            <div id="search_result" style="padding: 25px 25px 25px 25px;"></div>
+            </div>
+        
            <video width="600" height="175" controls id="fpreview">
                <source src="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_video" type="video/mp4">
                <source src="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_video" type="video/ogg"
