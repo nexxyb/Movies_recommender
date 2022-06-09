@@ -9,17 +9,23 @@ from app import mmr
 
 @app.route('/')
 @app.route('/home')
-@app.route('/index')
-@login_required
+@app.route('/index', methods= ["GET", "POST"])
 def index():
-    return render_template('index.html', title="Home")
+    form= SearchForm()
+    if form.validate_on_submit():
+        search= form.search.data
+        result= mmr.get_movie(search)
+        return result
+    return render_template('index.html', title="Home", form=form)
 
-@app.route('/getmovie', methods= ["GET", "POST"])
+'''@app.route('/getmovie', methods= ["GET", "POST"])
 def getmovie():
     form= SearchForm()
-    search= form.search.data
-    result= mmr.get_movie(search)
-    return result
+    if form.validate_on_submit():
+        search= form.search.data
+        result= mmr.get_movie(search)
+        return result
+    return render_template('result.html', form = form)'''
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
