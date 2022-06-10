@@ -1,5 +1,8 @@
 config.py
 app.db
+mmr1.py
+mmr2.py
+mmr3.py
 
 __pycache__
 # Jetbrains
