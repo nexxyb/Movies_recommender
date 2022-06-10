@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+        
+        <section>
+            <h1>Hi, {{ current_user.username }}!</h1>
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.search.label }}<br>
+                    {{ form.search(size=32) }}<br>
+                </p>
+                <p>{{ form.submit() }}</p>
+                
+            </form>
+        <div id="search_result">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Movie</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for key, value in result.items() %}
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <p>Note: Rating of 0 shows rating not available</p>
+        
+        
+           <!-- <video width="600" height="175" controls id="fpreview">
+               <source src="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_video" type="video/mp4">
+               <source src="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_video" type="video/ogg"
+           </video> -->
+        </section>
+{% endblock %}
+

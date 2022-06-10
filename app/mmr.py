@@ -72,11 +72,11 @@ def get_movie_rating(movie):
                     actual_rating= float(act_rating[:3])
                     return actual_rating
             else:
-                return 'N/A'
+                return 0
         else:
-            return 'N/A'
+            return 0
     else:
-        return 'N/A'
+        return 0
 #print(get_movie_rating("the protege"))
 
     
