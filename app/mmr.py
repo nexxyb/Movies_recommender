@@ -32,16 +32,14 @@ def get_related_titles(title):
     return related_titles  
 
 
-def get_movie_data(movie_title):    
+def get_movie_data(movie_title):
+    #go to https://omdbapi.com to get your api key
     parameters= {}
     parameters['t'] = movie_title
     parameters['type'] = 'movie'
     parameters['apikey'] = config.api_key2
     response = requests.get('http://www.omdbapi.com/', params= parameters)
-    #page = json.dumps(response.text)
-    #print(response)
     res =  response.json()
-    #print(res)
     if res['Response'] == 'True':
         return res
     else:
@@ -66,24 +64,23 @@ def get_movie_rating(movie):
             actual_rating= 0
         actors= mov_details['Actors']
         plot= mov_details['Plot']
-        movie_details=[actual_rating,actors,plot]
-        #print(m_url)
+        movie_details=[actual_rating,actors,plot]        
         return movie_details 
         
 def get_movie(movie_list):
     movie_list=[movie_list]    
-    recom1= []
-    recom2 = []
-    l_movie_list= []
+    main_movie_list= []
+    main_movie_details = []
+    movies_lists= []
     for m in movie_list:
-        l_movie_list.append(m.lower())
-    for movie in l_movie_list:
+        movies_lists.append(m.lower())
+    for movie in movies_lists:
         related_titles = get_related_titles(movie_list) #list of tuples
         for movie in related_titles:
             movie_rating = get_movie_rating(movie[0]) # list
-            recom1.append(movie[0])
+            main_movie_list.append(movie[0])
             movie_rating.append(movie[1])
-            recom2.append(movie_rating)       
-    r_dict= dict(zip(recom1,recom2))
-    recom= {k:v for k,v in sorted(r_dict.items(), key=lambda item: item[1][0], reverse=True)}
+            main_movie_details.append(movie_rating)       
+    movie_dict= dict(zip(main_movie_list, main_movie_details))
+    recom= {k:v for k,v in sorted(movie_dict.items(), key=lambda item: item[1][0], reverse=True)}
     return recom

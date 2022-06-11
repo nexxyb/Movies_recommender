@@ -4,7 +4,7 @@
         
         <section>
             <h1>Hi, {{ current_user.username }}!</h1>
-            <form action="" method="post" novalidate>
+            <form class="form-control" action="" method="post" novalidate>
                 {{ form.hidden_tag() }}
                 <p>
                     {{ form.search.label }}<br>
@@ -13,7 +13,19 @@
                 <p>{{ form.submit() }}</p>
                 
             </form>
-        <div id="search_result"></div>
+        <div id="search_result">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Movie</th>
+                        <th>Rating</th>
+                        <th>Actors</th>
+                        <th>Plot</th>
+                        <th>Trailer</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         
         
            <!-- <video width="600" height="175" controls id="fpreview">

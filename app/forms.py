@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Le
 from app.models import User
 
 class SearchForm(FlaskForm):
-    search = StringField('Enter Movie', validators=[DataRequired()])
+    search = StringField('Enter Movie(s) here', validators=[DataRequired()])
     submit= SubmitField('Get Movie')
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
