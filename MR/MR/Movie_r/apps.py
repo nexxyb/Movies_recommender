@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class MrConfig(AppConfig):
+class MovieRConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'MR'
+    name = 'Movie_r'
