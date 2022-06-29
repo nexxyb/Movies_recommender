@@ -132,3 +132,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+mmr1.py
+mmr2.py
+mmr3.py
