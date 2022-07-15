@@ -1,43 +1,46 @@
-{% extends "base.html" %}
+{% extends "recommender/base.html" %}
 
 {% block content %}
         
         <section>
-            <h1>Hi, {{ current_user.username }}!</h1>
-            <form class="form-control" action="" method="post" novalidate>
-                {{ form.hidden_tag() }}
-                <p>
-                    {{ form.search.label }}<br>
-                    {{ form.search(size=32) }}<br>
-                </p>
-                <p>{{ form.submit() }}</p>
-                
+            <h1></h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <table>
+                {{ form.as_table }}
+                </table>
+                <input type="submit" value="Search">
             </form>
-        <div id="search_result">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Movie</th>
-                        <th>Rating</th>
-                        <th>Actors</th>
-                        <th>Plot</th>
-                        <th>Trailer</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for key, value in result.items() %}
-                    <tr>
-                        <td>{{ key }}</td>
-                        <td>{{ value[0] }}</td>
-                        <td>{{ value[1] }}</td>
-                        <td>{{ value[2] }}</td>
-                        <td><a href="{{ value[3] }}" target="_blank">Youtube</a></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-        <p>Note: Rating of 0 means rating is not available at this time</p>
+            {% if result %}
+            <div id="search_result">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Rating</th>
+                            <th>Actors</th>
+                            <th>Plot</th>
+                            <th>Trailer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, value in result.items %}
+                        <tr>
+                            <td>{{ key }}</td>
+                            {% for v in value %}
+                                {% if forloop.last %}                                               
+                                    <td><a href="{{ v }}" target="_blank">Youtube</a></td>
+                                {% else %}
+                                    <td>{{ v }}</td> 
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+            {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            <p>Note: Rating of 0 means rating is not available at this time</p>
         
         
            <!-- <video width="600" height="175" controls id="fpreview">
