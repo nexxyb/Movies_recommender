@@ -1,10 +1,15 @@
 import requests
-import json
-from recommender import config
+import environ
+import os
+from recom.settings import BASE_DIR
+
+env= environ.Env()
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 def get_movies_from_tastedive(name):
     #go to https://tastedive.com/api to get your api key
-    api_key = config.api_key
+    api_key = env('api_key')
     parameters= {}
     parameters['q'] = name
     parameters['type'] = 'movie'
@@ -34,7 +39,7 @@ def get_movie_data(movie_title):
     parameters= {}
     parameters['t'] = movie_title
     parameters['type'] = 'movie'
-    parameters['apikey'] = config.api_key2
+    parameters['apikey'] = env('api_key2')
     response = requests.get('http://www.omdbapi.com/', params= parameters)
     res =  response.json()
     if res['Response'] == 'True':
