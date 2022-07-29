@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import *
 from django.views import generic
-from mmr3 import get_movie
+from . import mmr3 
 from recommender.forms import SearchForm
 from django.http import HttpResponseRedirect
 
@@ -15,12 +15,12 @@ def index(request):
         if form.is_valid():
             # process the data in form.cleaned_data as required
             data= form.cleaned_data['movie']
-            result= get_movie([data])
+            result= mmr3.get_movie([data])
 
     # if a GET (or any other method) we'll create a blank form
     else:
         form = SearchForm()
-        result= get_movie(form.data)
+        result= mmr3.get_movie(form.data)
     
     context = {
         'result': result,
