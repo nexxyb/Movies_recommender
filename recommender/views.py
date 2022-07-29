@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .models import *
 from django.views import generic
-#from django.contrib.auth.mixins import LoginRequiredMixin
 from mmr3 import get_movie
 from recommender.forms import SearchForm
 from django.http import HttpResponseRedirect
@@ -17,8 +16,6 @@ def index(request):
             # process the data in form.cleaned_data as required
             data= form.cleaned_data['movie']
             result= get_movie([data])
-            # redirect to a new URL:
-            #return HttpResponseRedirect(request.path.info)
 
     # if a GET (or any other method) we'll create a blank form
     else:
@@ -30,7 +27,6 @@ def index(request):
         'form':form
     }
 
-    # Render the HTML template index.html with the data in the context variable
     return render(request, 'recommender/index.html', context=context)
 class AboutView(generic.TemplateView):
     template_name= 'recommender/about.html'
