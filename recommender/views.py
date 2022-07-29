@@ -15,7 +15,7 @@ def index(request):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            data                                                                                = form.cleaned_data['movie']
+            data= form.cleaned_data['movie']
             result= get_movie([data])
             # redirect to a new URL:
             #return HttpResponseRedirect(request.path.info)
