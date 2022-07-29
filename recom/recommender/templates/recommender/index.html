@@ -13,10 +13,10 @@
     </head>
     <body class="d-flex flex-column min-vh-100">
         <div class="container-fluid">
-            <header class="container-fluid text-center">
-                <h1>Similar Movies Recommender</h1>
+            <header class="container-fluid text-center bg-dark bg-gradient ">
+                <a class="text-decoration-none text-white" href="{% url 'index' %}"> <h1>Similar Movies Recommender</h1>
                     <p><span>Get similar movies to your favorites</span></p>
-            </header>
+                </a></header>
             <hr>  
             
             <form action="" method="post" class="row g-1">
@@ -27,7 +27,7 @@
                             {% crispy form form.helper %}
                         </div>
                         <div class="col">
-                            <button type="submit" class="btn btn-primary form-inline mb-3">Search Movie</button>
+                            <button type="submit" class="btn btn-dark form-inline mb-3">Search Movie</button>
                         </div>
                     </div>
                 </div>        
@@ -38,6 +38,7 @@
                     <thead>
                         <tr>
                             <th>Movie</th>
+                            <th>Year Released</th>
                             <th>Rating</th>
                             <th>Actors</th>
                             <th>Plot</th>
@@ -51,7 +52,7 @@
                                     <td>{{ key }}</td>
                                         {% for v in value %}
                                             {% if forloop.last %}                                               
-                                                <td><a href="{{ v }}" target="_blank">Youtube</a></td>
+                                                <td class="link-dark"><a href="{{ v }}" target="_blank">Youtube</a></td>
                                             {% else %}
                                                 <td>{{ v }}</td> 
                                             {% endif %}
