@@ -34,7 +34,7 @@
             </form> 
                               
             <div id="search_result">
-                <table class="table col-auto table-dark table-striped">
+                <table class="table col-auto table-dark table-striped tabele-hover ">
                     <thead>
                         <tr>
                             <th>Movie</th>
@@ -52,7 +52,7 @@
                                     <td>{{ key }}</td>
                                         {% for v in value %}
                                             {% if forloop.last %}                                               
-                                                <td class="link-dark"><a href="{{ v }}" target="_blank">Youtube</a></td>
+                                                <td ><a class="text-white-50" href="{{ v }}" target="_blank">Youtube</a></td>
                                             {% else %}
                                                 <td>{{ v }}</td> 
                                             {% endif %}
