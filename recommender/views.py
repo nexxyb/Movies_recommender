@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import *
 from django.views import generic
 #from django.contrib.auth.mixins import LoginRequiredMixin
-from recommender.mmr3 import get_movie
+from mmr3 import get_movie
 from recommender.forms import SearchForm
 from django.http import HttpResponseRedirect
 
