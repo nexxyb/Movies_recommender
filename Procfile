@@ -1,1 +1,1 @@
-web: gunicorn recom.wsgi:app --log-file -
+web: gunicorn recom.wsgi:application --log-file - --log-level debug
